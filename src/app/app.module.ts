@@ -1,7 +1,10 @@
 import { Firebase } from '../providers/firebase';
 import { Auth } from '../providers/auth';
+import { Items } from '../providers/items';
 
 import { LoginPage } from '../pages/login/login';
+import { ListPage } from '../pages/list/list';
+import { AddPage } from '../pages/add/add';
 
 import { AngularFireModule } from 'angularfire2';
 
@@ -31,6 +34,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 @NgModule({
   declarations: [
     LoginPage,
+    ListPage,
+    AddPage,
 
     MyApp,
     AboutPage,
@@ -39,13 +44,17 @@ import { TabsPage } from '../pages/tabs/tabs';
     TabsPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      tabsPlacement: 'top'
+    }),
     AngularFireModule.initializeApp(firebaseConfig),
     CloudModule.forRoot(cloudSettings)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     LoginPage,
+    ListPage,
+    AddPage,
 
     MyApp,
     AboutPage,
@@ -56,6 +65,7 @@ import { TabsPage } from '../pages/tabs/tabs';
   providers: [
     Firebase,
     Auth,
+    Items,
     {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
