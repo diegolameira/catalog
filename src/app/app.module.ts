@@ -1,3 +1,13 @@
+import { AngularFireModule } from 'angularfire2';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyDRVqFKUxPYrLSHdc0kFYYEV8WxP9GVuKs",
+  authDomain: "catalog-6588b.firebaseapp.com",
+  databaseURL: "https://catalog-6588b.firebaseio.com",
+  storageBucket: "catalog-6588b.appspot.com",
+  messagingSenderId: "728959235914"
+};
+
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 const cloudSettings: CloudSettings = {
   'core': {
@@ -23,6 +33,7 @@ import { TabsPage } from '../pages/tabs/tabs';
   ],
   imports: [
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
     CloudModule.forRoot(cloudSettings)
   ],
   bootstrap: [IonicApp],
