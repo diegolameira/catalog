@@ -2,6 +2,7 @@ import { Firebase } from '../providers/firebase';
 import { Auth } from '../providers/auth';
 
 import { LoginPage } from '../pages/login/login';
+import { ListPage } from '../pages/list/list';
 
 import { AngularFireModule } from 'angularfire2';
 
@@ -31,6 +32,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 @NgModule({
   declarations: [
     LoginPage,
+    ListPage,
 
     MyApp,
     AboutPage,
@@ -46,6 +48,7 @@ import { TabsPage } from '../pages/tabs/tabs';
   bootstrap: [IonicApp],
   entryComponents: [
     LoginPage,
+    ListPage,
 
     MyApp,
     AboutPage,
