@@ -1,3 +1,8 @@
+import { Firebase } from '../providers/firebase';
+import { Auth } from '../providers/auth';
+
+import { LoginPage } from '../pages/login/login';
+
 import { AngularFireModule } from 'angularfire2';
 
 export const firebaseConfig = {
@@ -25,6 +30,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
   declarations: [
+    LoginPage,
+
     MyApp,
     AboutPage,
     ContactPage,
@@ -38,12 +45,17 @@ import { TabsPage } from '../pages/tabs/tabs';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    LoginPage,
+
     MyApp,
     AboutPage,
     ContactPage,
     HomePage,
     TabsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [
+    Firebase,
+    Auth,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
