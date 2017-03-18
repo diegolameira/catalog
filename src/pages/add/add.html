@@ -1,0 +1,62 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Adicionando</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="cancel()">
+        <span color="primary" showWhen="ios">
+          Cancelar
+        </span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button (click)="done()" [disabled]="!isReadyToSave" strong>
+        <span color="primary" showWhen="ios">
+          Criar
+        </span>
+        <ion-icon name="md-checkmark" showWhen="core,android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+  <form *ngIf="form" [formGroup]="form" (ngSubmit)="done()">
+
+    <input type="hidden" formControlName="key" />
+    <input type="hidden" formControlName="lat" />
+    <input type="hidden" formControlName="lng" />
+
+    <ion-list>
+
+      <input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)"/>
+      <div class="profile-image-wrapper" (click)="getPicture()">
+        <div class="profile-image-placeholder" *ngIf="!this.form.controls.pic.value">
+          <ion-icon name="add"></ion-icon>
+          <div>
+            Escolha uma imagem
+          </div>
+        </div>
+        <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="this.form.controls.pic.value"></div>
+      </div>
+
+      <ion-item>
+        <ion-label stacked>Título</ion-label>
+        <ion-input type="text" formControlName="title"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Descrição</ion-label>
+        <ion-input type="text" formControlName="description"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+  </form>
+
+</ion-content>

@@ -4,6 +4,7 @@ import { Items } from '../providers/items';
 
 import { LoginPage } from '../pages/login/login';
 import { ListPage } from '../pages/list/list';
+import { AddPage } from '../pages/add/add';
 
 import { AngularFireModule } from 'angularfire2';
 
@@ -34,6 +35,7 @@ import { TabsPage } from '../pages/tabs/tabs';
   declarations: [
     LoginPage,
     ListPage,
+    AddPage,
 
     MyApp,
     AboutPage,
@@ -52,6 +54,7 @@ import { TabsPage } from '../pages/tabs/tabs';
   entryComponents: [
     LoginPage,
     ListPage,
+    AddPage,
 
     MyApp,
     AboutPage,
