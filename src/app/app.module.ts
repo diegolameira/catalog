@@ -1,5 +1,6 @@
 import { Firebase } from '../providers/firebase';
 import { Auth } from '../providers/auth';
+import { Items } from '../providers/items';
 
 import { LoginPage } from '../pages/login/login';
 import { ListPage } from '../pages/list/list';
@@ -61,6 +62,7 @@ import { TabsPage } from '../pages/tabs/tabs';
   providers: [
     Firebase,
     Auth,
+    Items,
     {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
