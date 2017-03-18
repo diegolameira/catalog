@@ -38,6 +38,7 @@ export class ListPage {
   }
 
   remove(item: Item) {
+    this.itemService.remove(item);
   }
 
 }
